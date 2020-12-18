@@ -29,32 +29,16 @@ class CarsController extends AbstractController
 
 
         return $this->render('cars/index.html.twig', [
-            'controller_name' => 'CarsController',
             'reposBS' => $responseBS->toArray(),
             'reposJY' => $responseJY->toArray()["_embedded"]["carList"],
         ]);
     }
 
     /**
-     * @Route("/resaCar", name="resaCars")
+     * @Route("/cars/reservations", name="carsReservations")
      */
     public function reservationCar(HttpClientInterface $httpResaCars): Response
     {
-
-    // Création d'une nouvelle résa
-
-       /* $httpResaCars->request('POST', 'https://mysterious-eyrie-25660.herokuapp.com/reservations', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjA4Mjg3MzE1LCJleHAiOjE2MDgzNzM3MTV9.n440z2eNDH80TLRWMqc0oo2V7YKUAG_ZOFbQrgQIk8w',
-                'Accept' => 'application/json',
-            ],
-            'json' => [
-                'carId' => 1, 
-                'begin' => '10/05/2016' , 
-                'end' => '10/10/2017',
-            ],
-        ]); */
-
         $responseBS = $httpResaCars->request('GET', 'https://mysterious-eyrie-25660.herokuapp.com/reservations', [
             'headers' => [
                 'Authorization' => 'Bearer ' . 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjA4Mjg3MzE1LCJleHAiOjE2MDgzNzM3MTV9.n440z2eNDH80TLRWMqc0oo2V7YKUAG_ZOFbQrgQIk8w',
@@ -68,8 +52,7 @@ class CarsController extends AbstractController
             ],
         ]); 
         
-        return $this->render('cars/resa.html.twig', [
-            'controller_name' => 'CarsController',
+        return $this->render('cars/reservations.html.twig', [
             'reposBS' => $responseBS->toArray(),
             'reposJY' => $responseJY->toArray()["_embedded"]["rentalList"],
         ]);

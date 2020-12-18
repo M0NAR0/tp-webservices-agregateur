@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CarsController!{% endblock %}
+{% block title %}Cars{% endblock %}
 
 {% block body %}
 <style>
@@ -9,25 +9,33 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Repository Cars</h1>
+    <h1>Cars</h1>
 
+    {% if reposBS is defined %}
+    {% for repo in reposBS %}
+    <hr>
     <ul>
-        {% for repo in reposBS %}
         <li>Nom : {{ repo.name }} </li>
         <li>Description : {{ repo.description }} </li>
         <li>Marque : {{ repo.brand }} </li>
         <li>Immatriculation : {{ repo.immat }} </li>
         <li>Prix : {{ repo.dailyPrice }} </li>
-        <h1> ---------------------------------------------------------------</h1>
-        {% endfor %}    
-        {% for repo in reposJY %}
-        <li>Nom : {{ repo.name }} </li>
-        <li>Description : Pas de description </li>
-        <li>Marque : {{ repo.marque }} </li>
-        <li>Immatriculation : Pas de plaque d'immatriculation </li>
-        <li>Prix : C'est gratuit askip</li>
-        <h1> ---------------------------------------------------------------</h1>
-        {% endfor %}
     </ul>
+    {% endfor %}
+    {% endif %}
+
+    {% if reposJY is defined %}
+    {% for repo in reposJY %}
+    <hr>
+    <ul>
+        <li>Nom : {{ repo.name }} </li>
+        <li>Description : - </li>
+        <li>Marque : {{ repo.marque }} </li>
+        <li>Immatriculation : - </li>
+        <li>Prix : -</li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+    
 </div>
 {% endblock %}
