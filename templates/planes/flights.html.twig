@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flights{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Flights</h1>
+
+    {% if flightsKM is defined %}
+    {% for flight in flightsKM %}
+    <hr>
+    <ul id="{{ flight.id }}">
+        <li>Plane ID : {{ flight.plane }} </li>
+        <li>Departure Point ID : {{ flight.departurePoint }} </li>
+        <li>Arrival Point ID : {{ flight.arrivalPoint }} </li>
+        <li>Departure date : {{ flight.departureDate }} </li>
+        <li>Price : {{ flight.price }} </li>
+        <li>Available seats : -</li>
+        <li>Is full : -</li>
+        <li>Created at : -</li>
+        <li>Updated at : -</li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+
+    {% if flightsMP is defined %}
+    {% for flight in flightsMP.data %}
+    <hr>
+    <ul id="{{ flight.id }}">
+        <li>Plane ID : {{flight.plane_id}}</li>
+        <li>Departure Point ID : {{flight.start_city_id}}</li>
+        <li>Arrival Point ID : {{flight.end_city_id}}</li>
+        <li>Departure date : {{flight.date}}</li>
+        <li>Price : {{flight.price}}</li>
+        <li>Available seats : {{flight.available_seats}}</li>
+        <li>Is full : {{flight.is_full}}</li>
+        <li>Created at : {{flight.created_at}}</li>
+        <li>Updated at : {{flight.updated_at}}</li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+    
+</div>
+{% endblock %}

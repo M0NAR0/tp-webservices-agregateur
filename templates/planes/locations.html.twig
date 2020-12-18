@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Locations{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Locations</h1>
+
+    {% if locationsKM is defined %}
+    {% for location in locationsKM %}
+    <hr>
+    <ul id="{{ location.id }}">
+        <li>Name : {{ location.label }} </li>
+        <li>Created at : -</li>
+        <li>Updated at : -</li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+
+    {% if locationsMP is defined %}
+    {% for city in locationsMP.data %}
+    <hr>
+    <ul id="{{ city.id }}">
+        <li>Name : {{city.name}}</li>
+        <li>Created at : {{city.created_at}}</li>
+        <li>Updated at : {{city.updated_at}}</li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+
+</div>
+{% endblock %}
