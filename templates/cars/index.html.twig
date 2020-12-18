@@ -9,16 +9,25 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Repository Cars Benjamin et Simon</h1>
+    <h1>Repository Cars</h1>
 
     <ul>
-        {% for repo in repos %}
-        <li>Nom : {{ repo.name }} <li>
-        <li>Description : {{ repo.description }} <li>
-        <li>Marque : {{ repo.brand }} <li>
-        <li>Immatriculation : {{ repo.immat }} <li>
-        <li>Prix : {{ repo.dailyPrice }} <li>
+        {% for repo in reposBS %}
+        <li>Nom : {{ repo.name }} </li>
+        <li>Description : {{ repo.description }} </li>
+        <li>Marque : {{ repo.brand }} </li>
+        <li>Immatriculation : {{ repo.immat }} </li>
+        <li>Prix : {{ repo.dailyPrice }} </li>
+        <h1> ---------------------------------------------------------------</h1>
+        {% endfor %}    
+        {% for repo in reposJY %}
+        <li>Nom : {{ repo.name }} </li>
+        <li>Description : Pas de description </li>
+        <li>Marque : {{ repo.marque }} </li>
+        <li>Immatriculation : Pas de plaque d'immatriculation </li>
+        <li>Prix : C'est gratuit askip</li>
+        <h1> ---------------------------------------------------------------</h1>
         {% endfor %}
-    <ul>
+    </ul>
 </div>
 {% endblock %}
