@@ -9,12 +9,16 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Repository Cars Benjamin et Simon</h1>
 
-    This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href="{{ 'C:/workspaces/workspace-symfony/tp-webservices-agregateur/src/Controller/CarsController.php'|file_link(0) }}">src/Controller/CarsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/workspaces/workspace-symfony/tp-webservices-agregateur/templates/cars/index.html.twig'|file_link(0) }}">templates/cars/index.html.twig</a></code></li>
-    </ul>
+        {% for repo in repos %}
+        <li>Nom : {{ repo.name }} <li>
+        <li>Description : {{ repo.description }} <li>
+        <li>Marque : {{ repo.brand }} <li>
+        <li>Immatriculation : {{ repo.immat }} <li>
+        <li>Prix : {{ repo.dailyPrice }} <li>
+        {% endfor %}
+    <ul>
 </div>
 {% endblock %}
